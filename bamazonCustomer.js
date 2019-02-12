@@ -22,7 +22,19 @@ connection.connect(function (err) {
      // run the start function after the connection is made to prompt the user
      start();
 });
-
+let displayInventory = () => {
+     //console.log("SQL Connection Established")
+     connection.query("SELECT * FROM products", function(err, res) {
+         if (err) throw err
+         for (let i = 0; i < res.length; i++) {
+             console.log(" - - - - - - - - - - - - - - - ")
+             console.log("item number: " + res[i].id)
+             console.log("item: " + res[i].product)
+             console.log("price: $" + res[i].price)
+         }
+          // purchase()
+     })
+ };
 function start() {
      inquirer
           .prompt({
@@ -34,19 +46,7 @@ function start() {
           .then(function (answer) {
                // based on their answer, either call theY purchase or exit application
                if (answer.purchase === "YES") {
-                    let displayInventory = () => {
-                         //console.log("SQL Connection Established")
-                         connection.query("SELECT * FROM products", function(err, res) {
-                             if (err) throw err
-                             for (let i = 0; i < res.length; i++) {
-                                 console.log(" - - - - - - - - - - - - - - - ")
-                                 console.log("item number: " + res[i].id)
-                                 console.log("item: " + res[i].product)
-                                 console.log("price: $" + res[i].price)
-                             }
-                         //     purchase()
-                         })
-                     };
+                    
                     selectItem();
                     //  displayInventory();
                } else if (answer.purchase === "EXIT") {
@@ -133,7 +133,7 @@ function selectItem() {
                          // After 3 seconds display the inventory again so that the customer can make a new selcetion.
                          setTimeout(function() { displayInventory() }, 3000)
                      }
- 
+                     displayInventory();
  
                  }
              })
