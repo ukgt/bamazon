@@ -10,4 +10,4 @@ In this activity, I have be created an Amazon-like storefront with the MySQL ski
 ![bamazon](./Images/bamazon_NodeJS_File.png)
 ![inventory_list](./Images/inventory_list.png)
 ![mySql_Purchase_Shampoo](./Images/mySql_Purchase_Shampoo.png)
-![Shampoo_Update](./Images/Purchase_Shampoo_UPDATE.png)
+![Shampoo_Update](./Images/mySql_Purchase_Shampoo_UPDATE.png)
